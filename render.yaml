@@ -30,7 +30,6 @@ services:
   - type: web
     name: ai-site-guardian-frontend
     env: static
-    region: ohio
     rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: dist/client

@@ -14,5 +14,29 @@
     "regressionCount": 0,
     "summary": "",
     "criticalIssues": 1
+  },
+  {
+    "timestamp": "2026-05-15T09:25:10.905Z",
+    "url": "https://www.python.org/",
+    "healthScore": 97,
+    "regressionCount": 0,
+    "summary": "Bug report generation failed",
+    "criticalIssues": 0
+  },
+  {
+    "timestamp": "2026-05-15T09:31:08.141Z",
+    "url": "https://www.python.org/",
+    "healthScore": 97,
+    "regressionCount": 0,
+    "summary": "Bug report generation failed",
+    "criticalIssues": 0
+  },
+  {
+    "timestamp": "2026-05-15T09:40:52.273Z",
+    "url": "https://www.python.org/",
+    "healthScore": 97,
+    "regressionCount": 0,
+    "summary": "",
+    "criticalIssues": 3
   }
 ]

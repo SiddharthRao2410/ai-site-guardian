@@ -1,0 +1,517 @@
+{
+  "id": "1778837110904",
+  "timestamp": "2026-05-15T09:25:10.908Z",
+  "url": "https://www.python.org/",
+  "healthScore": 97,
+  "aiAnalysis": {
+    "websiteType": "educational/community portal",
+    "detectedFlows": [
+      "authentication",
+      "community_engagement",
+      "job_search_and_listing",
+      "information_access",
+      "governance_and_foundation_information"
+    ],
+    "importantPages": [
+      {
+        "url": "https://www.python.org/",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.python.org/accounts/login/",
+        "type": "login"
+      },
+      {
+        "url": "https://www.python.org/accounts/signup/",
+        "type": "signup"
+      },
+      {
+        "url": "https://www.python.org/jobs/",
+        "type": "job_board"
+      },
+      {
+        "url": "https://www.python.org/community/",
+        "type": "community_hub"
+      },
+      {
+        "url": "https://www.python.org/psf/",
+        "type": "foundation_information"
+      }
+    ],
+    "testCases": [
+      "Verify successful user login with valid credentials.",
+      "Verify error handling for invalid login attempts (incorrect username/password, empty fields).",
+      "Verify user registration with valid and unique credentials.",
+      "Verify error handling for registration with existing username or email address.",
+      "Verify form validations during signup (e.g., password strength, email format, required fields).",
+      "Verify 'Sign Up' and 'Sign In' buttons on their respective pages function correctly.",
+      "Verify the job search functionality returns relevant results based on keywords and filters.",
+      "Verify navigation to all major sections of the website (e.g., 'About', 'Community', 'PSF', 'Jobs').",
+      "Verify all internal links across the website are functional (no broken links).",
+      "Verify content on 'About' and 'Applications' pages is accurate and well-formatted.",
+      "Verify the single form on various pages (likely a search or contact form) submits data correctly.",
+      "Verify the website's responsiveness and layout integrity across different device sizes and browsers.",
+      "Verify accessibility standards are met, including keyboard navigation and ARIA attributes for interactive elements."
+    ],
+    "risks": [
+      "Potential for brute-force attacks on login/signup forms due to lack of strict rate limiting.",
+      "Account enumeration possible if error messages differentiate between 'username not found' and 'incorrect password'.",
+      "Cross-Site Scripting (XSS) vulnerabilities in search fields or any user-input areas, particularly on the job board.",
+      "SQL Injection risk if form inputs (e.g., search queries) are not properly sanitized and validated.",
+      "Broken links across the site, leading to a poor user experience and negative SEO impact.",
+      "Inadequate password policies during signup, allowing users to create weak and easily guessable passwords.",
+      "Lack of Two-Factor Authentication (2FA) for user accounts, which could lead to compromised accounts if credentials are stolen.",
+      "Potential for Cross-Site Request Forgery (CSRF) on state-changing actions (e.g., account updates, job application submissions, if applicable)."
+    ],
+    "recommendations": [
+      "Implement automated end-to-end tests for all critical user authentication flows (login, signup, password recovery).",
+      "Automate functional testing of the Job Board's search, filter, and listing display capabilities.",
+      "Set up continuous automated link checking to identify and report broken internal and external links promptly.",
+      "Develop and maintain an automated UI regression test suite for key pages and components to ensure visual consistency after deployments.",
+      "Integrate API tests for backend services responsible for user accounts, job data, and content management.",
+      "Automate performance and load testing for the homepage, job board, and authentication endpoints to ensure scalability and responsiveness.",
+      "Incorporate automated security scanning tools (SAST/DAST) into the CI/CD pipeline to detect common vulnerabilities proactively."
+    ]
+  },
+  "loginTestResults": {
+    "success": true,
+    "loginUrl": "https://www.python.org/accounts/login/",
+    "results": [
+      {
+        "test": "Empty Form Submission",
+        "status": "passed"
+      },
+      {
+        "test": "Invalid Login Test",
+        "status": "failed",
+        "reason": "Login form elements missing"
+      }
+    ],
+    "consoleErrors": [],
+    "screenshot": "login-test-result.png"
+  },
+  "brokenLinkResults": [
+    {
+      "url": "https://www.python.org/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/psf/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/psf-landing/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/jobs/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/community/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/community/irc/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/accounts/login/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/accounts/signup/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/about/",
+      "status": "passed",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.python.org/about/apps/",
+      "status": "passed",
+      "httpStatus": 200
+    }
+  ],
+  "buttonTestResults": [
+    {
+      "page": "https://www.python.org/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/psf/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/psf-landing/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/jobs/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/community/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/community/irc/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "button": "Unknown",
+      "status": "failed",
+      "reason": "elementHandle.innerText: Execution context was destroyed, most likely because of a navigation\nCall log:\n\u001b[2m  - waiting for locator(':scope')\u001b[22m\n"
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "button": "Unknown",
+      "status": "failed",
+      "reason": "elementHandle.innerText: Execution context was destroyed, most likely because of a navigation\nCall log:\n\u001b[2m  - waiting for locator(':scope')\u001b[22m\n"
+    },
+    {
+      "page": "https://www.python.org/about/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    },
+    {
+      "page": "https://www.python.org/about/apps/",
+      "button": "GO",
+      "status": "passed",
+      "navigatedTo": "https://www.python.org/search/?q=&submit="
+    }
+  ],
+  "formTestResults": [
+    {
+      "page": "https://www.python.org/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/psf/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/psf-landing/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/jobs/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/community/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/community/irc/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "formNumber": 2,
+      "status": "failed",
+      "reason": "elementHandle.$: Protocol error (DOM.describeNode): Cannot find context with specified id"
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "formNumber": 2,
+      "status": "failed",
+      "reason": "elementHandle.$: Protocol error (DOM.describeNode): Cannot find context with specified id"
+    },
+    {
+      "page": "https://www.python.org/about/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    },
+    {
+      "page": "https://www.python.org/about/apps/",
+      "formNumber": 1,
+      "status": "tested",
+      "validationDetected": true
+    }
+  ],
+  "consoleTestResults": [
+    {
+      "page": "https://www.python.org/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/psf/",
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://console.python.org/python-dot-org-live-consoles-status",
+          "failure": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "page": "https://www.python.org/psf-landing/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/jobs/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/community/",
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/cache/cf/84/cf8496fca0b75874033b48269e122a01.png",
+          "failure": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "page": "https://www.python.org/community/irc/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/about/",
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "page": "https://www.python.org/about/apps/",
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  ],
+  "accessibilityResults": [
+    {
+      "page": "https://www.python.org/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/psf/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/psf-landing/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/jobs/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/community/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/community/irc/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 1,
+      "emptyButtons": 0,
+      "accessibilityPassed": false
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 2,
+      "emptyButtons": 0,
+      "accessibilityPassed": false
+    },
+    {
+      "page": "https://www.python.org/about/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    },
+    {
+      "page": "https://www.python.org/about/apps/",
+      "imagesWithoutAlt": 0,
+      "unlabeledInputs": 0,
+      "emptyButtons": 0,
+      "accessibilityPassed": true
+    }
+  ],
+  "performanceResults": [
+    {
+      "page": "https://www.python.org/",
+      "loadTime": 857,
+      "resourceCount": 22,
+      "domSize": 855,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/psf/",
+      "loadTime": 58,
+      "resourceCount": 21,
+      "domSize": 494,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/psf-landing/",
+      "loadTime": 45,
+      "resourceCount": 22,
+      "domSize": 494,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/jobs/",
+      "loadTime": 2662,
+      "resourceCount": 42,
+      "domSize": 885,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/community/",
+      "loadTime": 54,
+      "resourceCount": 25,
+      "domSize": 508,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/community/irc/",
+      "loadTime": 34,
+      "resourceCount": 22,
+      "domSize": 464,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/accounts/login/",
+      "loadTime": 586,
+      "resourceCount": 23,
+      "domSize": 451,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/accounts/signup/",
+      "loadTime": 373,
+      "resourceCount": 22,
+      "domSize": 458,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/about/",
+      "loadTime": 413,
+      "resourceCount": 26,
+      "domSize": 571,
+      "performanceRating": "good"
+    },
+    {
+      "page": "https://www.python.org/about/apps/",
+      "loadTime": 405,
+      "resourceCount": 22,
+      "domSize": 549,
+      "performanceRating": "good"
+    }
+  ],
+  "aiBugReport": {
+    "summary": "Bug report generation failed"
+  },
+  "aiFixSuggestions": {
+    "fixSuggestions": []
+  },
+  "generatedScripts": {
+    "error": "Script generation failed"
+  },
+  "regressionResults": [],
+  "monitoringEntry": {
+    "timestamp": "2026-05-15T09:25:10.905Z",
+    "url": "https://www.python.org/",
+    "healthScore": 97,
+    "regressionCount": 0,
+    "summary": "Bug report generation failed",
+    "criticalIssues": 0
+  }
+}

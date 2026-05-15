@@ -63,7 +63,8 @@ function NewScanPage() {
   const fetchHistory = async () => {
     try {
       setLoadingHistory(true);
-      const res = await fetch("http://localhost:8000/reports");
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+      const res = await fetch(`${API_BASE}/reports`);
       if (res.ok) {
         const data = await res.json();
         setReports(Array.isArray(data) ? data : []);
@@ -80,7 +81,8 @@ function NewScanPage() {
     try {
       setLoadingReport(true);
       setActiveReportId(id);
-      const res = await fetch(`http://localhost:8000/reports/${id}`);
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+      const res = await fetch(`${API_BASE}/reports/${id}`);
       if (res.ok) {
         const data = await res.json();
         setScanResult(data);
@@ -117,7 +119,8 @@ function NewScanPage() {
       const fullUrl = url.startsWith("http") ? url : `https://${url}`;
       setLogs((l) => [...l, `[${new Date().toLocaleTimeString()}] Target: ${fullUrl}`]);
 
-      const response = await fetch("http://localhost:8000/analyze", {
+      const API_BASE = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+      const response = await fetch(`${API_BASE}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: fullUrl }),
